@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.cfox.stickyheaderview.MainActivity">
+
+    <include layout="@layout/include_titlebar"/>
+
+    <com.cfox.pulltorefresh.PullToRefreshLayout
+        android:id="@+id/refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/refresh_head"/>
+
+        <com.cfox.stickyheaderview.RefreshLinearLayout
+            android:id="@+id/refresh_linear_view"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.cfox.stickyheaderview.stickyview.StickHeaderView
+                android:id="@+id/stick_header_view"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:hvp_topOffset="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                    <com.cfox.bannerlibrary.LoopViewPager
+                        android:id="@+id/banner_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        app:lvp_delayTime="2000"
+                        app:lvp_isAutoLoop="true"
+                        />
+
+                    <com.cfox.bannerlibrary.CircleIndicator
+                        android:id="@+id/circle_point"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:background="#4000"
+                        app:ci_normalRadiusColor="#FFF"
+                        app:ci_selectedRadiusColor="#FFF"
+                        />
+
+                </RelativeLayout>
+
+                <com.cfox.stickyheaderview.stickyview.PagerSlidingTabStrip
+                    android:id="@+id/stick_tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@mipmap/bg_menu_normal"
+                    android:textSize="16sp"
+                    app:pstsDividerColor="#00000000"
+                    app:pstsIndicatorColor="#2DA4F0"
+                    app:pstsIndicatorHeight="2dp"
+                    app:pstsShouldExpand="false"
+                    app:pstsTextAllCaps="false"
+                    app:pstsUnderlineHeight="2dp"
+                    />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </com.cfox.stickyheaderview.stickyview.StickHeaderView>
+        </com.cfox.stickyheaderview.RefreshLinearLayout>
+    </com.cfox.pulltorefresh.PullToRefreshLayout>
+</LinearLayout>
